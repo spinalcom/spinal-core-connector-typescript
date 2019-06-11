@@ -1,1 +1,0 @@
-{"version":3,"file":"Vec.js","sourceRoot":"","sources":["../../src/models/Vec.ts"],"names":[],"mappings":";;AAAA,+BAA4B;AAC5B,+BAA4B;AAG5B,MAAa,GAAI,SAAQ,SAAG;IAC1B,YAAY,IAAI;QACd,KAAK,CAAC,IAAI,CAAC,CAAC;IACd,CAAC;IAED,SAAS;QACL,OAAO,SAAG,CAAC;IACf,CAAC;IACD,mBAAmB;QACjB,OAAO,KAAK,CAAC;IACf,CAAC;CAEF;AAZD,kBAYC"}

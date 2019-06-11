@@ -2,9 +2,10 @@
   "name": "spinal-core-connectorjs",
   "version": "1.0.0",
   "description": "Fog middleware that enables data visualization and interoperability for the Internet of Things",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/declarations/index.dts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "repository": "https://github.com/spinalcom/spinal-core-connector-typescript.git",
   "keywords": [
