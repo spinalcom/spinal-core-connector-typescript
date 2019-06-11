@@ -1,59 +1,63 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const Bool_1 = require("./Models/Bool");
-exports.Bool = Bool_1.Bool;
 const Choice_1 = require("./Models/Choice");
-exports.Choice = Choice_1.Choice;
 const Vec_1 = require("./Models/Vec");
-exports.Vec = Vec_1.Vec;
 const Val_1 = require("./Models/Val");
-exports.Val = Val_1.Val;
 const User_1 = require("./Models/User");
-exports.User = User_1.User;
 const TypedArrayInt32_1 = require("./Models/TypedArrayInt32");
-exports.TypedArrayInt32 = TypedArrayInt32_1.TypedArrayInt32;
 const TypedArrayFloat64_1 = require("./Models/TypedArrayFloat64");
-exports.TypedArrayFloat64 = TypedArrayFloat64_1.TypedArrayFloat64;
 const Str_1 = require("./Models/Str");
-exports.Str = Str_1.Str;
 const Obj_1 = require("./Models/Obj");
-exports.Obj = Obj_1.Obj;
 const Model_1 = require("./Models/Model");
-exports.Model = Model_1.Model;
 const Lst_1 = require("./Models/Lst");
-exports.Lst = Lst_1.Lst;
 const ConstrainedVal_1 = require("./Models/ConstrainedVal");
-exports.ConstrainedVal = ConstrainedVal_1.ConstrainedVal;
 const ConstOrNot_1 = require("./Models/ConstOrNot");
-exports.ConstOrNotModel = ConstOrNot_1.ConstOrNotModel;
 const SpinalCore_1 = require("./SpinalCore");
 const FileSystem_1 = require("./FileSystem/FileSystem");
-exports.FileSystem = FileSystem_1.FileSystem;
 const Directory_1 = require("./FileSystem/Models/Directory");
-exports.Directory = Directory_1.Directory;
 const File_1 = require("./FileSystem/Models/File");
-exports.File = File_1.File;
 const Path_1 = require("./FileSystem/Models/Path");
-exports.Path = Path_1.Path;
 const Pbr_1 = require("./FileSystem/Models/Pbr");
-exports.Pbr = Pbr_1.Pbr;
 const Ptr_1 = require("./FileSystem/Models/Ptr");
-exports.Ptr = Ptr_1.Ptr;
 const RightSetList_1 = require("./FileSystem/Models/RightSetList");
-exports.RightSetList = RightSetList_1.RightSetList;
 const RightsItem_1 = require("./FileSystem/Models/RightsItem");
-exports.RightsItem = RightsItem_1.RightsItem;
 const SessionModel_1 = require("./FileSystem/Models/SessionModel");
-exports.SessionModel = SessionModel_1.SessionModel;
 const TiffFile_1 = require("./FileSystem/Models/TiffFile");
-exports.TiffFile = TiffFile_1.TiffFile;
 const UserRight_1 = require("./FileSystem/Models/UserRight");
-exports.UserRight = UserRight_1.UserRight;
 const ModelProcessManager_1 = require("./ModelProcessManager");
-exports.ModelProcessManager = ModelProcessManager_1.ModelProcessManager;
 const SpinalUserManager_1 = require("./SpinalUserManager");
-exports.SpinalUserManager = SpinalUserManager_1.SpinalUserManager;
-exports.default = SpinalCore_1.SpinalCore;
+// @ts-ignore
+const root = window ? window : global;
+//export default spinalCore;
+/*export {
+  Bool,
+  Choice,
+  ConstOrNotModel,
+  ConstrainedVal,
+  Lst,
+  Model,
+  Obj,
+  Str,
+  TypedArrayFloat64,
+  TypedArrayInt32,
+  User,
+  Val,
+  Vec,
+  FileSystem,
+  Directory,
+  File,
+  Path,
+  Pbr,
+  Ptr,
+  RightSetList,
+  RightsItem,
+  SessionModel,
+  TiffFile,
+  UserRight,
+  ModelProcessManager,
+  SpinalUserManager
+}*/
 const model_export = {};
 model_export['spinalCore'] = SpinalCore_1.SpinalCore;
 model_export['Bool'] = Bool_1.Bool;
@@ -82,10 +86,20 @@ model_export['TiffFile'] = TiffFile_1.TiffFile;
 model_export['UserRight'] = UserRight_1.UserRight;
 model_export['ModelProcessManager'] = ModelProcessManager_1.ModelProcessManager;
 model_export['SpinalUserManager'] = SpinalUserManager_1.SpinalUserManager;
-let root = window ? window : global;
-for (let key in model_export) {
-    if (model_export.hasOwnProperty(key)) {
-        root[key] = model_export[key];
+if (root.hasOwnProperty('spinalCore')) {
+    // @ts-ignore
+    const obj = root.spinalCore;
+    module.exports = obj;
+}
+else {
+    // @ts-ignore
+    if (typeof root.spinalCore !== "undefined") {
+        for (let key in model_export) {
+            if (model_export.hasOwnProperty(key)) {
+                root[key] = model_export[key];
+            }
+        }
     }
+    module.exports = SpinalCore_1.SpinalCore;
 }
 //# sourceMappingURL=index.js.map

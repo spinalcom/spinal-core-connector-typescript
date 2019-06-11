@@ -26,8 +26,12 @@ import { UserRight } from "./FileSystem/Models/UserRight";
 import { ModelProcessManager } from "./ModelProcessManager";
 import { SpinalUserManager } from "./SpinalUserManager";
 
-export default spinalCore;
-export {
+
+// @ts-ignore
+const root = window ? window : global;
+
+//export default spinalCore;
+/*export {
   Bool,
   Choice,
   ConstOrNotModel,
@@ -54,7 +58,7 @@ export {
   UserRight,
   ModelProcessManager,
   SpinalUserManager
-}
+}*/
 const model_export = {};
 
 model_export['spinalCore'] = spinalCore;
@@ -85,11 +89,25 @@ model_export['UserRight'] = UserRight;
 model_export['ModelProcessManager'] = ModelProcessManager;
 model_export['SpinalUserManager'] = SpinalUserManager;
 
-let root = window ? window : global;
 
 
-for (let key  in model_export) {
-  if (model_export.hasOwnProperty(key)) {
-    root[key] = model_export[key];
+
+
+if (root.hasOwnProperty('spinalCore')) {
+  // @ts-ignore
+  const obj : spinalCore = root.spinalCore;
+
+  module.exports = obj;
+} else
+{
+
+  // @ts-ignore
+  if (typeof root.spinalCore !== "undefined") {
+    for (let key  in model_export) {
+      if (model_export.hasOwnProperty(key)) {
+        root[key] = model_export[key];
+      }
+    }
   }
+  module.exports = spinalCore;
 }
