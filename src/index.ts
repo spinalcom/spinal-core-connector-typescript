@@ -1,4 +1,4 @@
-import {Bool} from  "./Models/Bool";
+import { Bool } from "./Models/Bool";
 import { Choice } from "./Models/Choice";
 import { Vec } from "./Models/Vec";
 import { Val } from "./Models/Val";
@@ -11,10 +11,10 @@ import { Model } from "./Models/Model";
 import { Lst } from "./Models/Lst";
 import { ConstrainedVal } from "./Models/ConstrainedVal";
 import { ConstOrNotModel } from "./Models/ConstOrNot";
-import { SpinalCore } from "./SpinalCore";
+import { SpinalCore as spinalCore } from "./SpinalCore";
 import { FileSystem } from "./FileSystem/FileSystem";
 import { Directory } from "./FileSystem/Models/Directory";
-import {File} from "./FileSystem/Models/File"
+import { File } from "./FileSystem/Models/File"
 import { Path } from "./FileSystem/Models/Path";
 import { Pbr } from "./FileSystem/Models/Pbr";
 import { Ptr } from "./FileSystem/Models/Ptr";
@@ -25,12 +25,42 @@ import { TiffFile } from "./FileSystem/Models/TiffFile";
 import { UserRight } from "./FileSystem/Models/UserRight";
 import { ModelProcessManager } from "./ModelProcessManager";
 import { SpinalUserManager } from "./SpinalUserManager";
+
+export default spinalCore;
+export {
+  Bool,
+  Choice,
+  ConstOrNotModel,
+  ConstrainedVal,
+  Lst,
+  Model,
+  Obj,
+  Str,
+  TypedArrayFloat64,
+  TypedArrayInt32,
+  User,
+  Val,
+  Vec,
+  FileSystem,
+  Directory,
+  File,
+  Path,
+  Pbr,
+  Ptr,
+  RightSetList,
+  RightsItem,
+  SessionModel,
+  TiffFile,
+  UserRight,
+  ModelProcessManager,
+  SpinalUserManager
+}
 const model_export = {};
 
-model_export['spinalCore'] = SpinalCore;
+model_export['spinalCore'] = spinalCore;
 model_export['Bool'] = Bool;
 model_export['Choice'] = Choice;
-model_export['ConstOrNotModel'] = ConstOrNotModel ;
+model_export['ConstOrNotModel'] = ConstOrNotModel;
 model_export['ContrainedVal'] = ConstrainedVal;
 model_export['Lst'] = Lst;
 model_export['Model'] = Model;
@@ -58,10 +88,8 @@ model_export['SpinalUserManager'] = SpinalUserManager;
 let root = window ? window : global;
 
 
-for (let key  in model_export){
+for (let key  in model_export) {
   if (model_export.hasOwnProperty(key)) {
     root[key] = model_export[key];
   }
 }
-
-export default model_export;
