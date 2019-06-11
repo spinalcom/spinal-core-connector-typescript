@@ -1,0 +1,23 @@
+{
+  "name": "spinal-core-connectorjs",
+  "version": "1.0.0",
+  "description": "Fog middleware that enables data visualization and interoperability for the Internet of Things",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/spinalcom/spinal-core-connector-typescript.git",
+  "keywords": [
+    "IoT",
+    "BIM"
+  ],
+  "author": "SpinalCOM",
+  "license": "SpinalCOM",
+  "devDependencies": {
+    "typescript": "^3.5.1",
+    "@types/node": "^12.0.4"
+  },
+  "dependencies": {
+    "xhr2": "^0.2.0"
+  }
+}

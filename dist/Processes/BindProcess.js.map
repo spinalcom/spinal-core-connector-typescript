@@ -1,0 +1,1 @@
+{"version":3,"file":"BindProcess.js","sourceRoot":"","sources":["../../src/Processes/BindProcess.ts"],"names":[],"mappings":";;AAAA,uCAAoC;AAEpC,MAAa,WAAY,SAAQ,iBAAO;IAGtC,YAAY,KAAK,EAAE,oBAAoB,EAAE,IAAI;QAC3C,KAAK,CAAC,KAAK,EAAE,oBAAoB,CAAC,CAAC;QACnC,IAAI,CAAC,IAAI,GAAG,IAAI,CAAC;IACnB,CAAC;IAED,QAAQ;QACN,IAAI,CAAC,IAAI,EAAE,CAAC;IACd,CAAC;CACF;AAXD,kCAWC"}
