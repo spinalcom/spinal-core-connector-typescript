@@ -317,14 +317,16 @@ export class Model {
   }
 
   deep_copy(): any {
-    const obj = {};
-    for (let key of this._attribute_names) {
-      obj[key] = this[key].deep_copy();
+    var j, key, len, o, ref, __new__;
+    o = {};
+    ref = this._attribute_names;
+    for (j = 0, len = ref.length; j < len; j++) {
+      key = ref[j];
+      o[key] = this[key].deep_copy();
     }
-
-    let _new = eval(`${ModelProcessManager.get_object_class(this)};`);
-    _new.set_attr(obj);
-    return _new;
+    eval(` __new__ = new ${ModelProcessManager.get_object_class(this)};`);
+    __new__.set_attr(o);
+    return __new__;
   }
 
   real_change() {
@@ -363,12 +365,13 @@ export class Model {
     FileSystem.set_server_id_if_necessary(out, this);
     const str = [];
 
-    for (let name of this._attribute_names) {
-      const obj = this[name];
+    for (let i = 0; i < this._attribute_names.length; i++) {
+      const attr = this._attribute_names[i];
+      const obj = this[attr];
       FileSystem.set_server_id_if_necessary(out, obj);
-      str.push(name + ":" + obj._server_id)
+      str.push(attr + ":" + obj._server_id)
     }
-    return out.mod += `C ${this._server_id} ${str.join(",")} `
+    return out.mod += `C ${this._server_id} ${str.join(",")} `;
   }
 
   _set(value : any): boolean {
@@ -385,8 +388,8 @@ export class Model {
 
     for (let key in value) {
       if (value.hasOwnProperty(key) && value[key]) {
-        //Todo might failed
-        if (this[key].constructor === value[key].constructor)
+
+        if (this[key] && this[key].constructor === value[key].constructor)
           change = change ? change : this[key].set(value[key]);
         else {
           change = true;

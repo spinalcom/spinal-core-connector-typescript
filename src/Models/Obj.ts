@@ -12,7 +12,7 @@ export class Obj<T> extends Model{
   }
 
   toString() : string{
-    return this._data.toString()
+    return this._data != null ? this._data.toString() : void 0;
   }
 
   equals(obj: any): boolean {

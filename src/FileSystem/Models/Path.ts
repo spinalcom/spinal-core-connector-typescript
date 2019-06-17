@@ -25,9 +25,9 @@ export class Path extends Model {
   }
 
   // @ts-ignore
-  _get_fs_data = out => {
+  _get_fs_data(out) {
     super._get_fs_data(out);
     if (typeof this.file !== "undefined" && this._server_id & 3)
-      FileSystem._files_to_upload[this._server_id] = this;
+    return  FileSystem._files_to_upload[this._server_id] = this;
   };
 }

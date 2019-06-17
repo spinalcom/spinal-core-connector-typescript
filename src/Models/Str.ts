@@ -44,7 +44,7 @@ export class Str extends Obj<string> {
 
   _get_fs_data(out) {
     FileSystem.set_server_id_if_necessary(out, this);
-    return out.mod += `C ${this._server_id} ${encodeURI(this._data)} `
+    return out.mod += `C ${this._server_id} ${encodeURI(this._data)} `;
   }
 
   _set(value ?) : boolean{

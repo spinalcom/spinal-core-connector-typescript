@@ -1,6 +1,7 @@
 import { FileSystem } from "./FileSystem/FileSystem";
 import { Model } from "./Models/Model";
 import * as url from "url";
+import { Ptr } from "./FileSystem/Models/Ptr";
 
 export class SpinalCore {
   public static _def: object = {};
@@ -89,11 +90,12 @@ export class SpinalCore {
   }
 
   public static load(fs, path, callback_success, callback_error) {
-    if (typeof callback_error === "undefined")
+    if (typeof callback_error === "undefined"){
       callback_error = () => {
         console.log("Model Right could not be loaded." +
           " You can pass a callback to handle this error.")
       };
+    }
 
     let lst = path.split("/");
     let file_name = lst.pop();
@@ -101,28 +103,30 @@ export class SpinalCore {
       lst.splice(0, 1);
     path = lst.join("/"); //Absolute paths are not allowed
 
-    fs.load_or_make_dir(FileSystem._home_dir + path, (current_dir, err) => {
+    return fs.load_or_make_dir(FileSystem._home_dir + path, (current_dir, err) => {
 
-      if (err)
-        callback_error(err);
+      if (err){
+        console.error(err);
+        callback_error();
+      }
       else {
-
         let file = current_dir.detect((x) => {
           return x.name.get() === file_name
         });
-        if (file)
+        if (file) {
           file.load((data, err) => {
-            if (err)
+            if (err){
+              console.error(err);
               callback_error(err);
+            }
             else
               callback_success(data, err);
           });
+        }
         else
           callback_error()
       }
     })
-
-
   }
 
   public static load_type(fs, type, callback_success, callback_error) {
@@ -153,7 +157,7 @@ export class SpinalCore {
     })
   }
 
-  public static share_model(fs: FileSystem, ptr: number, file_name: string, right_flags: string, targetName: string) {
+  public static share_model(fs: FileSystem, ptr: Ptr, file_name: string, right_flags: string, targetName: string) {
     return fs.share_model(ptr, file_name, right_flags, targetName);
   }
 

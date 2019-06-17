@@ -411,7 +411,7 @@ export class Lst<T> extends Model {
     const res = [];
     for (let i = 0; i < this.length; i++) {
       const obj = this[i];
-      FileSystem.set_server_id_if_necessary(out,obj)
+      FileSystem.set_server_id_if_necessary(out,obj);
       res.push(obj._server_id);
     }
     return out.mod += `C ${this._server_id} ${res.join (",")} `;

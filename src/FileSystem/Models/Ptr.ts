@@ -22,7 +22,7 @@ import { Model } from "../../Models/Model";
 import { FileSystem } from "../FileSystem";
 
 export class Ptr extends Model {
-  public data: { model?: Model, value?: any };
+  public data: { model?: Model, value?: any } = {};
 
   constructor(model) {
     super();
@@ -32,7 +32,7 @@ export class Ptr extends Model {
   load(callback) {
     if (this.data.model)
       callback(this.data.model, false);
-    else if (FileSystem.hasOwnProperty('get_inst') && FileSystem.get_inst() !== null)
+    else if ( FileSystem.get_inst() !== null)
       FileSystem.get_inst().load_ptr(this.data.value, callback)
   }
 
@@ -42,15 +42,13 @@ export class Ptr extends Model {
     if (this.data.hasOwnProperty('model') && this.data.model !== null) {
       FileSystem.set_server_id_if_necessary(out, this.data.model);
 
-      out.mod += `C ${this._server_id} ${this.data.model._server_id}`;
+      out.mod += `C ${this._server_id} ${this.data.model._server_id} `;
       this.data.value = this.data.model._server_id;
       if (this.data.model._server_id & 3)
         FileSystem._ptr_to_update[this.data.model._server_id] = this;
 
-
-
     } else
-      return out.mod += `C ${this._server_id} ${this.data.value}`
+      return out.mod += `C ${this._server_id} ${this.data.value} `
   }
 
   _set(model: any): boolean {

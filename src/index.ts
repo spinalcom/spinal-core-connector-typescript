@@ -27,7 +27,6 @@ import { ModelProcessManager } from "./ModelProcessManager";
 import { SpinalUserManager } from "./SpinalUserManager";
 
 
-// @ts-ignore
 const root = window ? window : global;
 
 //export default spinalCore;
@@ -100,14 +99,14 @@ if (root.hasOwnProperty('spinalCore')) {
   module.exports = obj;
 } else
 {
-
   // @ts-ignore
-  if (typeof root.spinalCore !== "undefined") {
+
     for (let key  in model_export) {
       if (model_export.hasOwnProperty(key)) {
         root[key] = model_export[key];
+        spinalCore.register_models(model_export[key]);
       }
-    }
+
   }
   module.exports = spinalCore;
 }

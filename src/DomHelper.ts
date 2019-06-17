@@ -305,10 +305,10 @@ export class new_alert_msg {
     this.img.style.webkitTransform = `rotate(${this.deg}deg)`;
     this.img.style.transitionTimingFunction = 'linear';
     if (this.rotatating === true) {
-      return setTimeout(function () {
+      return setTimeout((function () {
         this.in_rotation = false;
         return this._loop_spinner_();
-      }, 2000);
+      }).bind(this), 2000);
     } else {
       return this.in_rotation = false;
     }
