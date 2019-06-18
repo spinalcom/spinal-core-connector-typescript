@@ -139,7 +139,7 @@ var new_alert_msg = /** @class */ (function () {
                 left: 0,
                 backgroundColor: 'rgba(36, 42, 48, 0.38)',
                 zIndex: 100000,
-                textAlign: 'center'
+                textAlign: 'center',
             },
             onclick: function (evt) {
                 if (evt.target !== this.background) {

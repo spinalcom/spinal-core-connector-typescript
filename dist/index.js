@@ -1,62 +1,59 @@
 "use strict";
 exports.__esModule = true;
 var Bool_1 = require("./Models/Bool");
+exports.Bool = Bool_1.Bool;
 var Choice_1 = require("./Models/Choice");
+exports.Choice = Choice_1.Choice;
 var Vec_1 = require("./Models/Vec");
+exports.Vec = Vec_1.Vec;
 var Val_1 = require("./Models/Val");
+exports.Val = Val_1.Val;
 var User_1 = require("./Models/User");
+exports.User = User_1.User;
 var TypedArrayInt32_1 = require("./Models/TypedArrayInt32");
+exports.TypedArrayInt32 = TypedArrayInt32_1.TypedArrayInt32;
 var TypedArrayFloat64_1 = require("./Models/TypedArrayFloat64");
+exports.TypedArrayFloat64 = TypedArrayFloat64_1.TypedArrayFloat64;
 var Str_1 = require("./Models/Str");
+exports.Str = Str_1.Str;
 var Obj_1 = require("./Models/Obj");
+exports.Obj = Obj_1.Obj;
 var Model_1 = require("./Models/Model");
+exports.Model = Model_1.Model;
 var Lst_1 = require("./Models/Lst");
+exports.Lst = Lst_1.Lst;
 var ConstrainedVal_1 = require("./Models/ConstrainedVal");
+exports.ConstrainedVal = ConstrainedVal_1.ConstrainedVal;
 var ConstOrNot_1 = require("./Models/ConstOrNot");
+exports.ConstOrNotModel = ConstOrNot_1.ConstOrNotModel;
 var SpinalCore_1 = require("./SpinalCore");
 var FileSystem_1 = require("./FileSystem/FileSystem");
+exports.FileSystem = FileSystem_1.FileSystem;
 var Directory_1 = require("./FileSystem/Models/Directory");
+exports.Directory = Directory_1.Directory;
 var File_1 = require("./FileSystem/Models/File");
+exports.File = File_1.File;
 var Path_1 = require("./FileSystem/Models/Path");
+exports.Path = Path_1.Path;
 var Pbr_1 = require("./FileSystem/Models/Pbr");
+exports.Pbr = Pbr_1.Pbr;
 var Ptr_1 = require("./FileSystem/Models/Ptr");
+exports.Ptr = Ptr_1.Ptr;
 var RightSetList_1 = require("./FileSystem/Models/RightSetList");
+exports.RightSetList = RightSetList_1.RightSetList;
 var RightsItem_1 = require("./FileSystem/Models/RightsItem");
+exports.RightsItem = RightsItem_1.RightsItem;
 var SessionModel_1 = require("./FileSystem/Models/SessionModel");
+exports.SessionModel = SessionModel_1.SessionModel;
 var TiffFile_1 = require("./FileSystem/Models/TiffFile");
+exports.TiffFile = TiffFile_1.TiffFile;
 var UserRight_1 = require("./FileSystem/Models/UserRight");
+exports.UserRight = UserRight_1.UserRight;
 var ModelProcessManager_1 = require("./ModelProcessManager");
+exports.ModelProcessManager = ModelProcessManager_1.ModelProcessManager;
 var SpinalUserManager_1 = require("./SpinalUserManager");
+exports.SpinalUserManager = SpinalUserManager_1.SpinalUserManager;
 var root = window ? window : global;
-//export default spinalCore;
-/*export {
-  Bool,
-  Choice,
-  ConstOrNotModel,
-  ConstrainedVal,
-  Lst,
-  Model,
-  Obj,
-  Str,
-  TypedArrayFloat64,
-  TypedArrayInt32,
-  User,
-  Val,
-  Vec,
-  FileSystem,
-  Directory,
-  File,
-  Path,
-  Pbr,
-  Ptr,
-  RightSetList,
-  RightsItem,
-  SessionModel,
-  TiffFile,
-  UserRight,
-  ModelProcessManager,
-  SpinalUserManager
-}*/
 var model_export = {};
 model_export['spinalCore'] = SpinalCore_1.SpinalCore;
 model_export['Bool'] = Bool_1.Bool;

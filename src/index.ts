@@ -29,8 +29,7 @@ import { SpinalUserManager } from "./SpinalUserManager";
 
 const root = window ? window : global;
 
-//export default spinalCore;
-/*export {
+export {
   Bool,
   Choice,
   ConstOrNotModel,
@@ -57,7 +56,7 @@ const root = window ? window : global;
   UserRight,
   ModelProcessManager,
   SpinalUserManager
-}*/
+}
 const model_export = {};
 
 model_export['spinalCore'] = spinalCore;

@@ -1,3 +1,4 @@
+/// <reference types="node" />
 export declare function new_dom_element(params?: {
     nodeName?: any;
     style?: {

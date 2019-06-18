@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import { FileSystem } from "./FileSystem/FileSystem";
 import { Model } from "./Models/Model";
 import { Ptr } from "./FileSystem/Models/Ptr";

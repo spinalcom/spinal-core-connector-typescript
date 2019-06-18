@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import { Model } from "../Models/Model";
 import { new_alert_msg } from "../DomHelper";
 import { Ptr } from "./Models/Ptr";
