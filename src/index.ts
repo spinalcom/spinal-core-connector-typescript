@@ -1,3 +1,30 @@
+export { Bool } from "./Models/Bool";
+export { Choice } from "./Models/Choice";
+export { Vec } from "./Models/Vec";
+export { Val } from "./Models/Val";
+export { User } from "./Models/User";
+export { TypedArrayInt32 } from "./Models/TypedArrayInt32";
+export { TypedArrayFloat64 } from "./Models/TypedArrayFloat64";
+export { Str } from "./Models/Str";
+export { Obj } from "./Models/Obj";
+export { Model } from "./Models/Model";
+export { Lst } from "./Models/Lst";
+export { ConstrainedVal } from "./Models/ConstrainedVal";
+export { ConstOrNotModel } from "./Models/ConstOrNot";
+export { FileSystem } from "./FileSystem/FileSystem";
+export { Directory } from "./FileSystem/Models/Directory";
+export { File } from "./FileSystem/Models/File"
+export { Path } from "./FileSystem/Models/Path";
+export { Pbr } from "./FileSystem/Models/Pbr";
+export { Ptr } from "./FileSystem/Models/Ptr";
+export { RightSetList } from "./FileSystem/Models/RightSetList";
+export { RightsItem } from "./FileSystem/Models/RightsItem";
+export { SessionModel } from "./FileSystem/Models/SessionModel";
+export { TiffFile } from "./FileSystem/Models/TiffFile";
+export { UserRight } from "./FileSystem/Models/UserRight";
+export { ModelProcessManager } from "./ModelProcessManager";
+export { SpinalUserManager } from "./SpinalUserManager";
+
 import { Bool } from "./Models/Bool";
 import { Choice } from "./Models/Choice";
 import { Vec } from "./Models/Vec";
@@ -11,7 +38,6 @@ import { Model } from "./Models/Model";
 import { Lst } from "./Models/Lst";
 import { ConstrainedVal } from "./Models/ConstrainedVal";
 import { ConstOrNotModel } from "./Models/ConstOrNot";
-import { SpinalCore as spinalCore } from "./SpinalCore";
 import { FileSystem } from "./FileSystem/FileSystem";
 import { Directory } from "./FileSystem/Models/Directory";
 import { File } from "./FileSystem/Models/File"
@@ -27,11 +53,14 @@ import { ModelProcessManager } from "./ModelProcessManager";
 import { SpinalUserManager } from "./SpinalUserManager";
 
 
+
+import { SpinalCore as spinalCore } from "./SpinalCore";
+
 const root = typeof window !== "undefined" ? window : global;
+
 
 const model_export = {};
 
-model_export['spinalCore'] = spinalCore;
 model_export['Bool'] = Bool;
 model_export['Choice'] = Choice;
 model_export['ConstOrNotModel'] = ConstOrNotModel;
@@ -59,49 +88,26 @@ model_export['UserRight'] = UserRight;
 model_export['ModelProcessManager'] = ModelProcessManager;
 model_export['SpinalUserManager'] = SpinalUserManager;
 
-
-if (root.hasOwnProperty('spinalCore')) {
-  // @ts-ignore
-  const obj: spinalCore = root.spinalCore;
-
-} else {
-  for (let key  in model_export) {
-    if (model_export.hasOwnProperty(key)) {
-      root[key] = model_export[key];
-      spinalCore.register_models(model_export[key]);
-    }
+for (let key  in model_export) {
+  if (model_export.hasOwnProperty(key)) {
+    root[key] = model_export[key];
+    spinalCore.register_models(model_export[key]);
   }
-  module.exports = spinalCore;
-  module.exports.Model = Model;
+}
+
+export let SpinalCore;
+
+if (root["SpinalCore"] === undefined)
+{
+  SpinalCore = spinalCore;
+  root['SpinalCore'] = SpinalCore;
 }
 
 
-export {
-  Bool,
-  Choice,
-  ConstOrNotModel,
-  ConstrainedVal,
-  Lst,
-  Model,
-  Obj,
-  Str,
-  TypedArrayFloat64,
-  TypedArrayInt32,
-  User,
-  Val,
-  Vec,
-  FileSystem,
-  Directory,
-  File,
-  Path,
-  Pbr,
-  Ptr,
-  RightSetList,
-  RightsItem,
-  SessionModel,
-  TiffFile,
-  UserRight,
-  ModelProcessManager,
-  SpinalUserManager
-}
+
+
+
+
+
+
 

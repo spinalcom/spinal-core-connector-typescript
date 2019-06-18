@@ -26,7 +26,6 @@ var ConstrainedVal_1 = require("./Models/ConstrainedVal");
 exports.ConstrainedVal = ConstrainedVal_1.ConstrainedVal;
 var ConstOrNot_1 = require("./Models/ConstOrNot");
 exports.ConstOrNotModel = ConstOrNot_1.ConstOrNotModel;
-var SpinalCore_1 = require("./SpinalCore");
 var FileSystem_1 = require("./FileSystem/FileSystem");
 exports.FileSystem = FileSystem_1.FileSystem;
 var Directory_1 = require("./FileSystem/Models/Directory");
@@ -53,47 +52,69 @@ var ModelProcessManager_1 = require("./ModelProcessManager");
 exports.ModelProcessManager = ModelProcessManager_1.ModelProcessManager;
 var SpinalUserManager_1 = require("./SpinalUserManager");
 exports.SpinalUserManager = SpinalUserManager_1.SpinalUserManager;
+var Bool_2 = require("./Models/Bool");
+var Choice_2 = require("./Models/Choice");
+var Vec_2 = require("./Models/Vec");
+var Val_2 = require("./Models/Val");
+var User_2 = require("./Models/User");
+var TypedArrayInt32_2 = require("./Models/TypedArrayInt32");
+var TypedArrayFloat64_2 = require("./Models/TypedArrayFloat64");
+var Str_2 = require("./Models/Str");
+var Obj_2 = require("./Models/Obj");
+var Model_2 = require("./Models/Model");
+var Lst_2 = require("./Models/Lst");
+var ConstrainedVal_2 = require("./Models/ConstrainedVal");
+var ConstOrNot_2 = require("./Models/ConstOrNot");
+var FileSystem_2 = require("./FileSystem/FileSystem");
+var Directory_2 = require("./FileSystem/Models/Directory");
+var File_2 = require("./FileSystem/Models/File");
+var Path_2 = require("./FileSystem/Models/Path");
+var Pbr_2 = require("./FileSystem/Models/Pbr");
+var Ptr_2 = require("./FileSystem/Models/Ptr");
+var RightSetList_2 = require("./FileSystem/Models/RightSetList");
+var RightsItem_2 = require("./FileSystem/Models/RightsItem");
+var SessionModel_2 = require("./FileSystem/Models/SessionModel");
+var TiffFile_2 = require("./FileSystem/Models/TiffFile");
+var UserRight_2 = require("./FileSystem/Models/UserRight");
+var ModelProcessManager_2 = require("./ModelProcessManager");
+var SpinalUserManager_2 = require("./SpinalUserManager");
+var SpinalCore_1 = require("./SpinalCore");
 var root = typeof window !== "undefined" ? window : global;
 var model_export = {};
-model_export['spinalCore'] = SpinalCore_1.SpinalCore;
-model_export['Bool'] = Bool_1.Bool;
-model_export['Choice'] = Choice_1.Choice;
-model_export['ConstOrNotModel'] = ConstOrNot_1.ConstOrNotModel;
-model_export['ContrainedVal'] = ConstrainedVal_1.ConstrainedVal;
-model_export['Lst'] = Lst_1.Lst;
-model_export['Model'] = Model_1.Model;
-model_export['Obj'] = Obj_1.Obj;
-model_export['Str'] = Str_1.Str;
-model_export['TypedArrayFloat64'] = TypedArrayFloat64_1.TypedArrayFloat64;
-model_export['TypedArrayInt34'] = TypedArrayInt32_1.TypedArrayInt32;
-model_export['User'] = User_1.User;
-model_export['Val'] = Val_1.Val;
-model_export['Vec'] = Vec_1.Vec;
-model_export['FileSystem'] = FileSystem_1.FileSystem;
-model_export['Directory'] = Directory_1.Directory;
-model_export['File'] = File_1.File;
-model_export['Path'] = Path_1.Path;
-model_export['Pbr'] = Pbr_1.Pbr;
-model_export['Ptr'] = Ptr_1.Ptr;
-model_export['RightSetList'] = RightSetList_1.RightSetList;
-model_export['RightItem'] = RightsItem_1.RightsItem;
-model_export['SessionModel'] = SessionModel_1.SessionModel;
-model_export['TiffFile'] = TiffFile_1.TiffFile;
-model_export['UserRight'] = UserRight_1.UserRight;
-model_export['ModelProcessManager'] = ModelProcessManager_1.ModelProcessManager;
-model_export['SpinalUserManager'] = SpinalUserManager_1.SpinalUserManager;
-if (root.hasOwnProperty('spinalCore')) {
-    // @ts-ignore
-    var obj = root.spinalCore;
-}
-else {
-    for (var key in model_export) {
-        if (model_export.hasOwnProperty(key)) {
-            root[key] = model_export[key];
-            SpinalCore_1.SpinalCore.register_models(model_export[key]);
-        }
+model_export['Bool'] = Bool_2.Bool;
+model_export['Choice'] = Choice_2.Choice;
+model_export['ConstOrNotModel'] = ConstOrNot_2.ConstOrNotModel;
+model_export['ContrainedVal'] = ConstrainedVal_2.ConstrainedVal;
+model_export['Lst'] = Lst_2.Lst;
+model_export['Model'] = Model_2.Model;
+model_export['Obj'] = Obj_2.Obj;
+model_export['Str'] = Str_2.Str;
+model_export['TypedArrayFloat64'] = TypedArrayFloat64_2.TypedArrayFloat64;
+model_export['TypedArrayInt34'] = TypedArrayInt32_2.TypedArrayInt32;
+model_export['User'] = User_2.User;
+model_export['Val'] = Val_2.Val;
+model_export['Vec'] = Vec_2.Vec;
+model_export['FileSystem'] = FileSystem_2.FileSystem;
+model_export['Directory'] = Directory_2.Directory;
+model_export['File'] = File_2.File;
+model_export['Path'] = Path_2.Path;
+model_export['Pbr'] = Pbr_2.Pbr;
+model_export['Ptr'] = Ptr_2.Ptr;
+model_export['RightSetList'] = RightSetList_2.RightSetList;
+model_export['RightItem'] = RightsItem_2.RightsItem;
+model_export['SessionModel'] = SessionModel_2.SessionModel;
+model_export['TiffFile'] = TiffFile_2.TiffFile;
+model_export['UserRight'] = UserRight_2.UserRight;
+model_export['ModelProcessManager'] = ModelProcessManager_2.ModelProcessManager;
+model_export['SpinalUserManager'] = SpinalUserManager_2.SpinalUserManager;
+for (var key in model_export) {
+    if (model_export.hasOwnProperty(key)) {
+        root[key] = model_export[key];
+        SpinalCore_1.SpinalCore.register_models(model_export[key]);
     }
-    module.exports = SpinalCore_1.SpinalCore;
-    module.exports.Model = Model_1.Model;
+}
+if (root["SpinalCore"] === undefined) {
+    exports.SpinalCore = SpinalCore_1.SpinalCore;
+    root['SpinalCore'] = exports.SpinalCore;
 }
 //# sourceMappingURL=index.js.map
