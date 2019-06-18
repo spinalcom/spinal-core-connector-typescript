@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "description": "Fog middleware that enables data visualization and interoperability for the Internet of Things",
   "main": "dist/index.js",
-  "types": "declarations/index.dts",
+  "types": "declarations/index.d.ts",
   "scripts": {
     "build": "tsc"
   },
