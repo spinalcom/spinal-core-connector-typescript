@@ -1,4 +1,4 @@
-import { Model } from "../Models/Model";
+import { Model } from "..";
 export declare class Process {
     process_id: number;
     models: Model[];

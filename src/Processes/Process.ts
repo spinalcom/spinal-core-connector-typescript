@@ -1,5 +1,5 @@
 import { ModelProcessManager } from "../ModelProcessManager";
-import { Model } from "../Models/Model";
+import { Model } from "..";
 
 export class Process {
 

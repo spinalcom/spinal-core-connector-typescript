@@ -53,7 +53,7 @@ var ModelProcessManager_1 = require("./ModelProcessManager");
 exports.ModelProcessManager = ModelProcessManager_1.ModelProcessManager;
 var SpinalUserManager_1 = require("./SpinalUserManager");
 exports.SpinalUserManager = SpinalUserManager_1.SpinalUserManager;
-var root = window ? window : global;
+var root = typeof window !== "undefined" ? window : global;
 var model_export = {};
 model_export['spinalCore'] = SpinalCore_1.SpinalCore;
 model_export['Bool'] = Bool_1.Bool;
@@ -85,10 +85,8 @@ model_export['SpinalUserManager'] = SpinalUserManager_1.SpinalUserManager;
 if (root.hasOwnProperty('spinalCore')) {
     // @ts-ignore
     var obj = root.spinalCore;
-    module.exports = obj;
 }
 else {
-    // @ts-ignore
     for (var key in model_export) {
         if (model_export.hasOwnProperty(key)) {
             root[key] = model_export[key];
@@ -96,5 +94,6 @@ else {
         }
     }
     module.exports = SpinalCore_1.SpinalCore;
+    module.exports.Model = Model_1.Model;
 }
 //# sourceMappingURL=index.js.map

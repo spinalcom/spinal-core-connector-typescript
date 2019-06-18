@@ -27,36 +27,8 @@ import { ModelProcessManager } from "./ModelProcessManager";
 import { SpinalUserManager } from "./SpinalUserManager";
 
 
-const root = window ? window : global;
+const root = typeof window !== "undefined" ? window : global;
 
-export {
-  Bool,
-  Choice,
-  ConstOrNotModel,
-  ConstrainedVal,
-  Lst,
-  Model,
-  Obj,
-  Str,
-  TypedArrayFloat64,
-  TypedArrayInt32,
-  User,
-  Val,
-  Vec,
-  FileSystem,
-  Directory,
-  File,
-  Path,
-  Pbr,
-  Ptr,
-  RightSetList,
-  RightsItem,
-  SessionModel,
-  TiffFile,
-  UserRight,
-  ModelProcessManager,
-  SpinalUserManager
-}
 const model_export = {};
 
 model_export['spinalCore'] = spinalCore;
@@ -88,24 +60,48 @@ model_export['ModelProcessManager'] = ModelProcessManager;
 model_export['SpinalUserManager'] = SpinalUserManager;
 
 
-
-
-
 if (root.hasOwnProperty('spinalCore')) {
   // @ts-ignore
-  const obj : spinalCore = root.spinalCore;
+  const obj: spinalCore = root.spinalCore;
 
-  module.exports = obj;
-} else
-{
-  // @ts-ignore
-
-    for (let key  in model_export) {
-      if (model_export.hasOwnProperty(key)) {
-        root[key] = model_export[key];
-        spinalCore.register_models(model_export[key]);
-      }
-
+} else {
+  for (let key  in model_export) {
+    if (model_export.hasOwnProperty(key)) {
+      root[key] = model_export[key];
+      spinalCore.register_models(model_export[key]);
+    }
   }
   module.exports = spinalCore;
+  module.exports.Model = Model;
 }
+
+
+export {
+  Bool,
+  Choice,
+  ConstOrNotModel,
+  ConstrainedVal,
+  Lst,
+  Model,
+  Obj,
+  Str,
+  TypedArrayFloat64,
+  TypedArrayInt32,
+  User,
+  Val,
+  Vec,
+  FileSystem,
+  Directory,
+  File,
+  Path,
+  Pbr,
+  Ptr,
+  RightSetList,
+  RightsItem,
+  SessionModel,
+  TiffFile,
+  UserRight,
+  ModelProcessManager,
+  SpinalUserManager
+}
+
